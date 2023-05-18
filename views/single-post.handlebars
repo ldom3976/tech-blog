@@ -1,21 +1,33 @@
-{{> post-info post}}
+<section class="card">
+    <div class ="card-header">
+        <h2><a href="/post/{{post.id}}">{{post.title}}</a></h2>
+        <p class="card-text">Posted by {{post.user.username}} on {{format_date post.created_at}}</p>
+    </div>
+    <div class ="card-body">
+        <p>
+            {{post.post_body}}
+        </p>
+    </div>
 
-{{#if loggedIn}}
+{{#if post.comments}}
+    <h2 class="card-header">Comments</h2>
+    {{#each post.comments as |comment| }}
+    <div class="card-header">Comment by: {{comment.user.username}} on {{format_date comment.created_at}}</div>
+        <div>
+            <p class="card-body">
+            {{comment_body}}
+            </p>
+        </div>
+    {{/each}}
+{{/if}}
+<input type="hidden" id="post-id" value="{{post.id}}" />
 <div class="card">
-    <h3 class="card-header"></h3>
-    <form class="card-body comment-form" id="comment-form">
-
-        <label class="form-label">Comment</label>
-        <input id="comment" name="comment-body" class="form-input" />
-
-        <button type="submit" class="btn">Submit</button>
+    <form class="card-body" id="new-comment-form">
+        <p class="form-label">Comment:</p>
+        <textarea class="card-body form-input" id="comment-body" name="comment-body"></textarea>
+        <button type="submit" class="btn">Submit:</button>
     </form>
 </div>
-{{/if}}
+</section>
 
-
-{{> comments post.comments}}
-
-{{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
-{{/if}}
