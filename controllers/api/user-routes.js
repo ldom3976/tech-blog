@@ -17,32 +17,35 @@ router.get('/', (req, res) => {
 // GET user by id
 
 router.get('/:id', (req, res) => {
-    attributes: { exclude: ['password'] },
-    where: {
-      id: req.params.id
-    },
-    include: [
-      {
-        model: Post,
-        attributes: [
-            'id', 
-            'title', 
-            'content', 
-            'created_at']
-      },
-      model: Comment,
-      attributes: ['id', 'comment_text', 'created_at'],
-      include: {
-        model: Post,
-        attributes: ['title']
-      }
-    },
-    {
-      model: Post,
-      attributes: ['title'],
-    }
-  ]
-});     
+    User.findOne({
+        attributes: { exclude: ['password'] },
+        where: {
+          id: req.params.id
+        },
+        include: [
+          {
+            model: Post,
+            attributes: [
+                'id', 
+                'title', 
+                'content', 
+                'created_at']
+          },
+          // include the Comment model here:
+          {
+            model: Comment,
+            attributes: ['id', 'comment_text', 'created_at'],
+            include: {
+              model: Post,
+              attributes: ['title']
+            }
+          },
+          {
+            model: Post,
+            attributes: ['title'],
+          }
+        ]
+      })
 
     .then(dbUserData => {
     if (!dbUserData) {
