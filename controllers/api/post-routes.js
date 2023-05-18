@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Post, User, Comment} = require('../../models');
-//const sequelize = require('../../config/connection');
+const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
 // GET all posts
@@ -28,9 +28,7 @@ router.get('/', (req, res) => {
      }
 ]
 
-});
-
-.then(dbPostData => res.json(dbPostData.reverse()))
+}).then(dbPostData => res.json(dbPostData.reverse()))
 .catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -63,9 +61,7 @@ router.get('/:id', (req, res) => {
             }
         }
     ]
-});
-
-.then(dbPostData => {
+}).then(dbPostData => {
     if (!dbPostData) {
       res.status(404).json({ message: 'No post found.' });
       return;
