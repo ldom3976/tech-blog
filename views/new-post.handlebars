@@ -1,15 +1,17 @@
-<div class="card">
-    <h3 class="card-header">Create New Post</h3>
-    <form class="card-body new-post-form" id="new-post-form">
-        <label for="post-title" class="form-label">Title</label>
-        <input type="text" id="post-title" name="post-title" class="form-input" />
+<section class="card">
+  <h2 class="card-header">Create New Post</h2>
 
-
-        <label class="form-label" for="content">Content</label>
-        <input id="content" name="content" class="form-input" />
-
-        <button type="submit" class="btn">Create</button>
-    </form>
-</div>
+  <form id="new-post-form">
+    <div>
+      <label for="post-title" class="form-label">Title</label>
+      <input type="text" id="post-title" name="post-title" class="form-input" />
+    </div>
+    <div>
+      <label for="post-body" class="form-label">Body</label>
+      <textarea name="post-body" id="post-body" class="card-body form-textarea"></textarea>
+    </div>
+    <button type="submit" class="btn">Create Post</button>
+  </form>
+</section>
 
 <script src="/javascript/add-post.js"></script>
