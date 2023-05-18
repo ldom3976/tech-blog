@@ -13,11 +13,17 @@ Post.init(
       },
       title: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+          len:[1]
+      }
       },
-      content: {
+      post_body: {
         type: DataTypes.TEXT,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            len:[1]
+        }
       },
       user_id: {
         type: DataTypes.INTEGER,
@@ -25,6 +31,9 @@ Post.init(
           model: 'user',
           key: 'id'
         }
+      },
+      created_at: {
+        type: DataTypes.DATE,
       }
     },
     {

@@ -8,12 +8,14 @@ Comment.init(
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
+            allowNull: false,
             autoIncrement: true
         },
-        comment_text: {
+        comment_body: {
             type: DataTypes.STRING,
+            allowNull: false,
             validate: {
-            len: [3]
+            len: [1]
             }
         },
         user_id: {
@@ -31,6 +33,9 @@ Comment.init(
                 model: 'post',
                 key: 'id'
             }
+        },
+        created_at: {
+            type: DataTypes.DATE,
         }
     },
     {
