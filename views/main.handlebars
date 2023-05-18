@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  <div class="wrapper">
+      <header class="hero">
+          <div>
+            <nav class"nav">
+                    <a class="link" href="/">home</a>
+                    <a class="link" href="/dashboard">dashboard</a>
+                    {{#if loggedIn}}
+                    <a class="link" href="/" id="logout">logout</a>
+                    {{else}}
+                    <a class="link" href="/login">login</a>
+                    {{/if}}
+                </nav>          
+          </div>
+
+          </body>
+
+</html>
