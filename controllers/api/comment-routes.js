@@ -2,6 +2,8 @@ const router = require('express').Router();
 const { Comment, Post, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+
+//GET all comments
 router.get('/', async (req, res) => {
 try {
     const commentData = await Comment.findAll({})
@@ -12,7 +14,7 @@ try {
   }
 });
 
-
+//create new comment
 router.post('/', withAuth, async (req, res) => {
     try {
       const newComment = await Comment.create({

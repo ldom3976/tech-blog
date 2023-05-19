@@ -45,3 +45,4 @@ sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log('Now listening'));
   });
 
+//not sure why I'm getting an error with db

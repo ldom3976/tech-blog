@@ -3,6 +3,8 @@ const router = require('express').Router();
 const {Post, User, Comment} = require('../models');
 const withAuth = require('../utils/auth');
 
+//render all user's post to the dashboard layout and all-posts-admin.handlebars
+
 router.get('/', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -36,12 +38,15 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
+//render new posts using dashboard layout and the new-post.handlebars
+
 router.get('/new', withAuth, (req, res) => {
   res.render('new-post', {
     layout: 'dashboard',
   });
 });
 
+//edit posts by ID using dashboard layout and render to edit-post.handlebars
 
 router.get('/edit/:id', withAuth, async (req, res) => {
   try {
