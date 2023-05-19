@@ -11,6 +11,10 @@
 
 ## Note to Graders:
 
+I have tried my very best on this challenge and have reviewed all my code numerous times. I have asked for help with this error from both a friend with experience and also my class TA's. I'm just having trouble running a successful build. However, I do have all the code necessary for this app and this challenge has built my understanding of the MVC paradigm.
+
+Also, my friend who tried to help me with this error was able to clone my repo and run the database successfully on their computer. I'm just having trouble running it on mine and cannot figure out the error. 
+
 ## User Story
 
 `AS A developer who writes about tech
@@ -33,11 +37,18 @@ This is a blog website where the user may sign up or log in, then they are able 
 
 ## Deployed Application
 
-link here
+https://tech-blog-ubc.herokuapp.com
 
 ## Visual Representation
 
+Database error I have gotten:
+
 ![Alt text](public/assets/errorscreen.png)
+
+I was able to successfully delpoy to heroku, but still get an error on the actual page:
+
+![Alt text](public/assets/herokubuild.png)
+
 
 ## Contributing
 
